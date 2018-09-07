@@ -1,2 +1,3 @@
 # ItsInTheBag
-Nedap Hackathon projetc
+Nedap Hackathon project
+
