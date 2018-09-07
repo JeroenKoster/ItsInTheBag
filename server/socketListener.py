@@ -1,19 +1,12 @@
 import websocket
 import json
-import pyrebase
 
-config = {
-    "apiKey": "AIzaSyA5Zfsn4fFQIC3IF68I-yCCvluOlcJ8oFo",
-    "authDomain": "alarm-7be78.firebaseapp.com",
-    "databaseURL": "https://alarm-7be78.firebaseio.com",
-    "projectId": "alarm-7be78",
-    "storageBucket": "alarm-7be78.appspot.com",
-    "messagingSenderId": "796113443167"
-  }
-firebase = pyrebase.initialize_app(config)
+from firebase import firebase
+
+firebase = firebase.FirebaseApplication('https://alarm-7be78.firebaseio.com', None)
 
 def on_message(ws, message):
-    print(message)
+    firebase.post('/metal_event', {'event': message})
 
 def on_error(ws, error):
     print(error)
@@ -39,3 +32,4 @@ if __name__ == "__main__":
                               on_close = on_close)
     ws.on_open = on_open
     ws.run_forever()
+
