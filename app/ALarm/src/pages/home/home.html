@@ -8,4 +8,13 @@
 
 <ion-content padding>
 
+  <H1>TEST</H1>
+
+  <ion-card *ngFor="let event of events">
+    <a href="https://picsum.photos/200?random"><img src="https://picsum.photos/200?random" /></a>
+    <ion-card-header>
+      {{event.id}}
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>
